@@ -6,6 +6,7 @@ main(){
         echo "2. Change Directory"
         echo "3. Print file"
         echo "4. Edit file with echo"
+        echo "5. Edit file with nano"
         echo "7. Quit"
         echo
         read -p "Choose one: " choice
@@ -15,6 +16,7 @@ main(){
             "2" ) chngDir;;
             "3" ) prntFile;;
             "4" ) editEcho;;
+            "5" ) editNano;;
             "7" ) exit 0;;
             * ) echo "Smth wrong!";;
         esac
@@ -83,6 +85,13 @@ editEcho() {
     fi
 
     echo "$text" > "$file" && echo "Succesful!"
+}
+
+editNano() {
+    file=$(inputFile)
+    nano "$file"
+    echo "Succesful"
+    echo
 }
 
 main
